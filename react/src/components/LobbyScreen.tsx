@@ -3,6 +3,7 @@ import { loadLevel } from '../levels.ts'
 import { useSession } from '../state/session.ts'
 import { LevelPicker } from './LevelPicker.tsx'
 import { Lobby } from './Lobby.tsx'
+import { TicTacToe } from './TicTacToe.tsx'
 
 export function LobbyScreen() {
   const { session, dispatch } = useSession()
@@ -40,6 +41,8 @@ export function LobbyScreen() {
           {error !== null && <span className="error">{error}</span>}
         </div>
       </section>
+
+      <TicTacToe />
     </>
   )
 }

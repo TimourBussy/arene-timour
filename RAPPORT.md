@@ -8,3 +8,8 @@ J'ai eu des soucis avec le timer qui s'affichait en NaN. Celà venait du fait qu
 ### Usage de l'IA
 - Formatage du timer
 - Trouver un problème tout bête où il y avait juste le mot "type" qui était dans l'import alors qu'il ne devait pas être là
+
+## Rendu B
+
+### Usage de l'IA
+- Aide pour avoir un CSS correct par rapport au CSS qui était déjà dans le starter

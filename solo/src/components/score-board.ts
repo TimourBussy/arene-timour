@@ -5,7 +5,7 @@ export class ScoreBoard extends HTMLElement {
         this.textContent = 'Score : 0'
     }
 
-    attributeChangedCallback(name: string, _old: string | null, value: string | null) {
+    attributeChangedCallback(name: string, _old: string | null, _value: string | null) {
         if (name === 'value') this.render()
         if (name === 'label') this.render()
     }
