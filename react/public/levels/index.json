@@ -1,0 +1,14 @@
+[
+  {
+    "file": "arena.json",
+    "name": "Ar\u00e8ne"
+  },
+  {
+    "file": "corridor.json",
+    "name": "Couloirs"
+  },
+  {
+    "file": "cross.json",
+    "name": "Croix"
+  }
+]
