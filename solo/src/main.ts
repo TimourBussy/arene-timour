@@ -1,3 +1,5 @@
+import type { ScoreBoard } from './components/score-board.ts'
+import { XTimer } from './components/x-timer.ts'
 import { Game } from './engine/game.ts'
 import { bindKeyboard } from './input.ts'
 import { arena } from './levels/arena.ts'
@@ -5,8 +7,9 @@ import { createRenderer } from './renderer.ts'
 
 const canvas = document.querySelector<HTMLCanvasElement>('#arena')
 const score = document.querySelector<HTMLElement>('#score')
+const timer = document.querySelector<XTimer>('#timer')
 const message = document.querySelector<HTMLElement>('#message')
-if (canvas === null || score === null || message === null) throw new Error('Page incomplète')
+if (canvas === null || score === null || timer === null || message === null) throw new Error('Page incomplète')
 
 const PLAYER_ID = 'p1'
 const game = new Game(arena, [{ id: PLAYER_ID, name: 'Moi', color: '#61dafb' }])
@@ -18,12 +21,15 @@ bindKeyboard(game, PLAYER_ID)
 game.events.on('tick', draw)
 game.events.on('start', () => {
   score.textContent = 'Score : 0'
+  timer.reset()
   message.textContent = 'Flèches ou ZQSD pour tourner'
 })
+
 game.events.on('score', ({ score: value }) => {
   score.textContent = `Score : ${value}`
 })
 game.events.on('over', (state) => {
+  timer.stop()
   const [player] = state.players
   message.textContent = `Perdu avec ${player.score} cible(s). Espace pour rejouer.`
 })
@@ -34,3 +40,10 @@ window.addEventListener('keydown', (event) => {
     game.start()
   }
 })
+
+declare global {
+    interface HTMLElementTagNameMap {
+        'score-board': ScoreBoard,
+        'x-timer': XTimer,
+    }
+}

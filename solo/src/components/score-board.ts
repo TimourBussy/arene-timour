@@ -16,9 +16,3 @@ export class ScoreBoard extends HTMLElement {
 }
 
 customElements.define('score-board', ScoreBoard)
-
-declare global {
-    interface HTMLElementTagNameMap {
-        'score-board': ScoreBoard
-    }
-}

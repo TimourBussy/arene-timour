@@ -72,6 +72,7 @@ export class Game {
   /** (Re)démarre une partie depuis le début. */
   start(): void {
     this.stop()
+
     this.state = withTargets({ ...createState(this.level, this.setups), status: 'running' }, this.random)
     this.inputs = {}
     this.previous = 0
